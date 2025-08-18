@@ -38,19 +38,8 @@ Terraform is an **open-source Infrastructure as Code (IaC) tool** created by Has
 
 ### 2.2 Terraform Architecture Overview
 Terraform's architecture is modular and plugin-driven. Here's the complete breakdown:
-```mermaid
-graph TD
-    A[User] -->|terraform plan<br>terraform apply| B[Terraform manifest files (.tf)]
-    B --> C[Terraform core]
-    C --> D[State file (.tfstate)]
-    C --> E[Plugins]
-    E --> F[Providers<br>Azure, GCP, AWS, VMware, etc.]
-    E --> G[Provisioners<br>Remote-exec, local-exec, etc.]
-    D --> H[Cloud service providers]
-    H --> I[AWS]
-    H --> J[Google Cloud]
-    H --> K[Azure]
-``` 
+
+![Terraform Architecture Diagram](https://miro.medium.com/v2/resize:fit:4800/format:webp/0*bJzMGdZBo0zKfbvQ)  
 *(Simplified visualization - core components interact as described below)*
 
 1.  **Terraform CLI (Command Line Interface):**  
@@ -571,3 +560,11 @@ sp.json
 *   Implement **Input Validation** (e.g., `validation` block on `location`).  
 
 ---
+
+**This guide is your complete Terraform fundamentals reference.** Bookmark it. Revisit sections as needed. Remember:  
+1.  **Write** declarative configs.  
+2.  **INIT** before anything else.  
+3.  **PLAN** religiously – it's your safety net.  
+4.  **APPLY** only after reviewing the plan.  
+5.  **DESTROY** test environments.  
+6.  **STATE** is sacred – use remote backends.  
