@@ -39,7 +39,7 @@ Terraform is an **open-source Infrastructure as Code (IaC) tool** created by Has
 ### 2.2 Terraform Architecture Overview
 Terraform's architecture is modular and plugin-driven. Here's the complete breakdown:
 
-![Terraform Architecture Diagram](https://developer.hashicorp.com/_next/image?url=%2Fterraform%2Fdocs%2Fcloud%2Fimages%2Farch-overview-diagram.png&w=3840&q=75)  
+![Terraform Architecture Diagram](https://spacelift.io/blog/terraform-architecture)  
 *(Simplified visualization - core components interact as described below)*
 
 1.  **Terraform CLI (Command Line Interface):**  
