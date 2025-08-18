@@ -48,15 +48,6 @@ graph TD
     C --> G[State file (.tfstate)]
     G --> H[Cloud service providers]
 
-    style A fill:#9C27B0,stroke:#7B1FA2,color:white,font-weight:bold
-    style B fill:#E3F2FD,stroke:#1976D2,color:black
-    style C fill:#4CAF50,stroke:#388E3C,color:white,font-weight:bold
-    style D fill:#BBDEFB,stroke:#1976D2,color:black
-    style E fill:#E8F5E8,stroke:#4CAF50,color:black
-    style F fill:#E8F5E8,stroke:#4CAF50,color:black
-    style G fill:#F3E5F5,stroke:#9C27B0,color:black
-    style H fill:#ECEFF1,stroke:#9E9E9E,color:black,font-weight:bold
-
     classDef component fill:#f9f,stroke:#333,stroke-width:2px;
     classDef provider fill:#bbf,stroke:#333,stroke-width:2px;
 
