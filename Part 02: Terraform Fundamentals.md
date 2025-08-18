@@ -42,32 +42,14 @@ Terraform's architecture is modular and plugin-driven. Here's the complete break
 graph TD
     A[User] -->|terraform plan<br>terraform apply| B[Terraform manifest files (.tf)]
     B --> C[Terraform core]
-    C --> D[Plugins]
-    D --> E[Providers<br>AWS • Azure • GCP<br>VMware • OpenStack]
-    D --> F[Provisioners<br>remote-exec • local-exec]
-    C --> G[State file (.tfstate)]
-    G --> H[Cloud service providers]
-
-    classDef component fill:#f9f,stroke:#333,stroke-width:2px;
-    classDef provider fill:#bbf,stroke:#333,stroke-width:2px;
-
-    class B,C,D,G component
-    class E,F provider
-
-    subgraph Terraform Core
-        C
-        D
-        E
-        F
-        G
-    end
-
-    subgraph Cloud Providers
-        H
-    end
-
-    style Terraform Core dashed,stroke:#000,stroke-width:1px
-    style Cloud Providers stroke:#000,stroke-width:1px
+    C --> D[State file (.tfstate)]
+    C --> E[Plugins]
+    E --> F[Providers<br>Azure, GCP, AWS, VMware, etc.]
+    E --> G[Provisioners<br>Remote-exec, local-exec, etc.]
+    D --> H[Cloud service providers]
+    H --> I[AWS]
+    H --> J[Google Cloud]
+    H --> K[Azure]
 ``` 
 *(Simplified visualization - core components interact as described below)*
 
