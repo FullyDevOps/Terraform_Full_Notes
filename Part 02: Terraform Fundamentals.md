@@ -40,16 +40,13 @@ Terraform is an **open-source Infrastructure as Code (IaC) tool** created by Has
 Terraform's architecture is modular and plugin-driven. Here's the complete breakdown:
 ```mermaid
 graph TD
-    A[User] -->|terraform plan<br>terraform apply| B[Terraform Manifest Files<br>(.tf)]
-    B --> C[Terraform Core]
+    A[User] -->|terraform plan<br>terraform apply| B[Terraform manifest files (.tf)]
+    B --> C[Terraform core]
     C --> D[Plugins]
-    D --> E[Providers<br>AWS • Azure • GCP<br>VMware • Kubernetes]
-    D --> F[Provisioners<br>remote-exec • local-exec<br>file • chef]
-    C --> G[State File<br>(terraform.tfstate)]
-    G --> H[Cloud Service Providers]
-    H --> I[AWS]
-    H --> J[Google Cloud]
-    H --> K[Azure]
+    D --> E[Providers<br>AWS • Azure • GCP<br>VMware • OpenStack]
+    D --> F[Provisioners<br>remote-exec • local-exec]
+    C --> G[State file (.tfstate)]
+    G --> H[Cloud service providers]
 
     style A fill:#9C27B0,stroke:#7B1FA2,color:white,font-weight:bold
     style B fill:#E3F2FD,stroke:#1976D2,color:black
@@ -59,15 +56,27 @@ graph TD
     style F fill:#E8F5E8,stroke:#4CAF50,color:black
     style G fill:#F3E5F5,stroke:#9C27B0,color:black
     style H fill:#ECEFF1,stroke:#9E9E9E,color:black,font-weight:bold
-    style I fill:#FF9900,stroke:#CC7A00,color:white;padding:10px
-    style J fill:#4285F4,stroke:#3367D6,color:white;padding:10px
-    style K fill:#0078D4,stroke:#005A9E,color:white;padding:10px
 
     classDef component fill:#f9f,stroke:#333,stroke-width:2px;
     classDef provider fill:#bbf,stroke:#333,stroke-width:2px;
 
     class B,C,D,G component
     class E,F provider
+
+    subgraph Terraform Core
+        C
+        D
+        E
+        F
+        G
+    end
+
+    subgraph Cloud Providers
+        H
+    end
+
+    style Terraform Core dashed,stroke:#000,stroke-width:1px
+    style Cloud Providers stroke:#000,stroke-width:1px
 ``` 
 *(Simplified visualization - core components interact as described below)*
 
