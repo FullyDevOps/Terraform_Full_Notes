@@ -38,8 +38,37 @@ Terraform is an **open-source Infrastructure as Code (IaC) tool** created by Has
 
 ### 2.2 Terraform Architecture Overview
 Terraform's architecture is modular and plugin-driven. Here's the complete breakdown:
+```mermaid
+graph TD
+    A[User] -->|terraform plan<br>terraform apply| B[Terraform manifest files (.tf)]
+    B --> C[Terraform core]
+    C --> D[Plugins]
+    D --> E[Providers<br>Azure, GCP, AWS,<br>VMware, etc.]
+    D --> F[Provisioners<br>Remote-exec,<br>local-exec, etc.]
+    C --> G[State file (.tfstate)]
+    G --> H[Cloud service providers]
+    H --> I[aws]
+    H --> J[Google Cloud]
+    H --> K[Azure]
 
-![Terraform Architecture Diagram](https://spacelift.io/blog/terraform-architecture)  
+    style A fill:#9C27B0,stroke:#7B1FA2,color:white
+    style B fill:#E3F2FD,stroke:#1976D2,color:black
+    style C fill:#4CAF50,stroke:#388E3C,color:white
+    style D fill:#BBDEFB,stroke:#1976D2,color:black
+    style E fill:#E8F5E8,stroke:#4CAF50,color:black
+    style F fill:#E8F5E8,stroke:#4CAF50,color:black
+    style G fill:#F3E5F5,stroke:#9C27B0,color:black
+    style H fill:#ECEFF1,stroke:#9E9E9E,color:black
+    style I image:https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/1200px-Amazon_Web_Services_Logo.svg.png width:60px height:60px
+    style J image:https://www.gstatic.com/images/branding/googlelogo/1x/googlelogo_color_92x30dp.png width:60px height:60px
+    style K image:https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Azure_logo.svg/1200px-Azure_logo.svg.png width:60px height:60px
+
+    classDef component fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef provider fill:#bbf,stroke:#333,stroke-width:2px;
+
+    class B,C,D,G component
+    class E,F provider
+``` 
 *(Simplified visualization - core components interact as described below)*
 
 1.  **Terraform CLI (Command Line Interface):**  
