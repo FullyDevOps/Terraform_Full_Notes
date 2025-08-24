@@ -1,4 +1,3 @@
----
 
 ### **Introduction to Terraform**  
 1. **Q: What is Terraform, and why do teams use it?**  
